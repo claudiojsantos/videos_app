@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :video do
-    nome { "MyString" }
-    url { "MyString" }
+    name { Faker::Name.name }
+    url { Faker::Internet.url }
   end
 end
