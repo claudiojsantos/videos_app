@@ -9,7 +9,8 @@ RSpec.describe Video, type: :model do
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_presence_of(:url) } 
+    it { is_expected.to validate_presence_of(:url) }
+    it { is_expected.to validate_numericality_of(:views).is_greater_than_or_equal_to(0) }
   end
   
   describe "instance methods" do

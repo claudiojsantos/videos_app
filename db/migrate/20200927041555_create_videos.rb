@@ -3,7 +3,7 @@ class CreateVideos < ActiveRecord::Migration[6.0]
     create_table :videos do |t|
       t.string :name
       t.string :url
-      t.integer :views
+      t.integer :views, :default => 0
 
       t.timestamps
     end

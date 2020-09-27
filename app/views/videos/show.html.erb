@@ -1,2 +1,19 @@
-<h1>Videos#show</h1>
-<p>Find me in app/views/videos/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @video.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @video.url %>
+</p>
+
+<p>
+  <strong>Views:</strong>
+  <%= @video.views %>
+</p>
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>
