@@ -1,0 +1,48 @@
+<link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<%= stylesheet_link_tag "login" %>
+
+<body>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 login-section-wrapper">
+          <div class="brand-wrapper">
+            <img src=<%= asset_path('logo.png') %> alt="logo" class="logo">
+          </div>
+          <div class="login-wrapper my-auto">
+            <h1 class="login-title">Log in</h1>
+            <form action="#!">
+              <div class="form-group">
+                <%= f.label :email %><br/>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              </div>
+              <div class="form-group mb-4">
+                <%= f.label :password %><br/>
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+              </div>
+              <div class="actions">
+                <%= f.submit "Log in", class: "btn btn-block login-btn" %>
+              </div>
+            </form>
+            <div class="form-check mb-4">
+              <% if devise_mapping.rememberable? %>
+                <div class="form-group mb-4">
+                  <%= f.check_box :remember_me, class: "form-check-input" %>
+                  <%= f.label :remember_me, class: 'form-check-label' %>
+                </div>
+              <% end %>
+            </div>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src=<%= asset_path('login.jpg') %> alt="login image" class="login-img">
+        </div>
+      </div>
+    </div>
+  </main>
+<% end %>
+</body>
