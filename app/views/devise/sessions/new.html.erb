@@ -16,6 +16,14 @@
             <h1 class="login-title">Log in</h1>
             <form action="#!">
               <div class="form-group">
+                <% if notice %>
+                  <p class="alert alert-success"><%= notice %></p>
+                <% end %>
+                <% if alert %>
+                  <p class="alert alert-danger"><%= alert %></p>
+                <% end %>
+              </div>
+              <div class="form-group">
                 <%= f.label :email %><br/>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
               </div>
