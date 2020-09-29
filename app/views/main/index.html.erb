@@ -3,11 +3,29 @@
 <div id="container">
   <div class="row">
     <div class="col-md-6" id="div_logo">
-      <div class="col-md-12">
-        <img src=<%= asset_path("logo") %> alt="">
+      <div class="row">
+        <div class="col-md-12">
+          <img src=<%= asset_path("logo") %> alt="">
+        </div>
       </div>
-      <div class="col-md-12">
-
+      <div class="row">
+        <div class="col-md-12 text-center alert alert-primary" >
+          <h6><b>Faça Parte da Maior Comunidade de Videos do Brasil</b></h6>
+        </div>
+      </div>
+      <div class="row">
+<!--        <div class="col-md-12">-->
+          <div class="col-md-6" id="div_descricao">
+            <p>Transmita eventos ao vivo ou gerencie seus vídeos em nossa plataforma</p>
+            <p>Transmita para o seu site utilizando nosso player incorporado, como também transmita simultaneamente para as
+            principais redes sociais</p>
+            <p>Faça parte de nossa comunidade e mostre ou compartilhe para seus amigos seus principais vídeos.</p>
+            <p>Entre em contato conosco pelo telefone: <br> (11) 90909.9099</p>
+          </div>
+          <div class="col-md-6">
+            <%= render('/main/new_users') %>
+          </div>
+<!--        </div>-->
       </div>
     </div>
     <div class="col-md-6 text-center" id="player_video">

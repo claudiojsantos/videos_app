@@ -1,5 +1,5 @@
 html{
-  overflow: auto;
+  overflow-x: hidden;
 }
 
 * {
@@ -33,4 +33,11 @@ html{
   padding-top: 20px;
   width: 675px;
   height: 380px;
+}
+
+#div_descricao p {
+  padding-top: 25px;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+  font-size: 18px;
 }
