@@ -4,9 +4,11 @@
     <title>VideosApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
   </head>
 
   <body>

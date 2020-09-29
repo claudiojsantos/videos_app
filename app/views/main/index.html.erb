@@ -1,4 +1,20 @@
 <%= stylesheet_link_tag "main" %>
 
-<div class="container">
+<div id="container">
+  <div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6" id="player_video">
+      <video
+        id="player"
+        class="video-js"
+        data-setup='{"liveui": true,"fluid": true}'>
+        <source src="https://content.jwplatform.com/manifests/yp34SRmf.m3u8" type="application/x-mpegurl"/>
+      </video>
+
+      <video id="player"></video>
+    </div>
+  </div>
 </div>
+
+
+<%= javascript_pack_tag 'player' %>
