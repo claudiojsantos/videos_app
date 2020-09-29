@@ -222,7 +222,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    videojs_rails (4.12.15)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.0.4)
@@ -269,7 +268,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
-  videojs_rails (~> 4.12, >= 4.12.15)
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
