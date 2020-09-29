@@ -2,19 +2,37 @@
 
 <div id="container">
   <div class="row">
-    <div class="col-md-6"></div>
-    <div class="col-md-6" id="player_video">
-      <video
-        id="player"
-        class="video-js"
-        data-setup='{"liveui": true,"fluid": true}'>
-        <source src="https://content.jwplatform.com/manifests/yp34SRmf.m3u8" type="application/x-mpegurl"/>
-      </video>
+    <div class="col-md-6" id="div_logo">
+      <div class="col-md-12">
+        <img src=<%= asset_path("logo") %> alt="">
+      </div>
+      <div class="col-md-12">
 
-      <video id="player"></video>
+      </div>
+    </div>
+    <div class="col-md-6 text-center" id="player_video">
+      <video id="player" class="video-js">
+        <source id="src_url" src="https://content.jwplatform.com/manifests/yp34SRmf.m3u8" type="application/x-mpegurl"/>
+      </video>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 alert alert-dark text-center" role="danger">
+      <h4>Teste seus vídeos m3u8 com o nosso player</h4>
+    </div>
+    <div class="col-md-12 text-center">
+      <div class="row justify-content-center">
+        <div class="col-4" >
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="ipt_url" placeholder="https://content.jwplatform.com/manifests/yp34SRmf.m3u8">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" id="btn_play"><i class="fa fa-play" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
 
 <%= javascript_pack_tag 'player' %>

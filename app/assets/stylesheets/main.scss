@@ -1,22 +1,36 @@
-body {
-  margin: 0;
+html{
+  overflow: auto;
+}
+
+* {
+  padding:0;
+  margin:0;
+  vertical-align:baseline;
+  list-style:none;
+  border:0
 }
 
 #container {
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: #e5e5e5;
-  //background: url(/assets/background);
   opacity: 1;
   background-size: cover;
 }
 
+#div_logo img {
+  width: 200px;
+}
+
 #player_video {
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#container background {
-  opacity: .4;
+#player {
+  padding-top: 20px;
+  width: 675px;
+  height: 380px;
 }
-
