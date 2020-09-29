@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # permitir a exclusão do database se necessário
+  DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
