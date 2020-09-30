@@ -2,18 +2,6 @@ require "rails_helper"
 
 RSpec.describe VideosController, type: :controller do
   describe "as a guest" do
-    context "#index" do
-      it "responds a successfully" do
-        get :index
-        expect(response).to have_http_status(:success)
-      end
-
-      it "responds a code 200" do
-        get :index
-        expect(response).to have_http_status(200)
-      end
-    end
-
     context "#show" do
       it "show response 302 - not authorized" do
         video = create(:video)
@@ -30,9 +18,26 @@ RSpec.describe VideosController, type: :controller do
       sign_in @user
     end
 
+    context "#index" do
+      it "responds a successfully" do
+        get :index
+        expect(response).to have_http_status(:success)
+      end
+
+      it "responds a code 200" do
+        get :index
+        expect(response).to have_http_status(200)
+      end
+
+      it "render :index template" do
+        get :index, params: {user_id: subject.current_user.id}
+        expect(response).to render_template(:index)
+      end
+    end
+
     context "#show" do
       it "show response 200 - authorized" do
-        get :show, params: {id: @video.id}
+        get :show, params: {id: @video.id }
         expect(response).to have_http_status(200)
       end
 
@@ -51,9 +56,7 @@ RSpec.describe VideosController, type: :controller do
         expect { post :create, params: {video: @video_params} }.to change(Video, :count).by(1)
       end
 
-      # it "url only m3u8 extensions" do
-      #   expect(@video_params.url).to include(".m3u8")
-      # end
+
     end
   end
 end

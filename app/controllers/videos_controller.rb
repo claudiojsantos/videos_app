@@ -1,11 +1,11 @@
 class VideosController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.all.where(user_id: current_user.id)
   end
 
   # GET /videos/1
@@ -25,7 +25,7 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    @video = Video.new(video_params)
+    @video = Video.new(video_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @video.save

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'main/index'
-  # get 'videos/index'
+  # get 'videos/index/:user_id'
   # get 'videos/new'
   # get 'videos/create'
   # get 'videos/edit'
@@ -12,5 +11,5 @@ Rails.application.routes.draw do
   resources :videos
   
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end

@@ -1,19 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @video.name %>
-</p>
+<%= render 'header' %>
+<main>
+  <div class="row">
+      <div class="col-md-12 text-center" id="player_video">
+        <video id="player" class="video-js">
+          <source id="src_url" src=<%= @video.url %> type="application/x-mpegurl"/>
+        </video>
+      </div>
+  </div>
 
-<p>
-  <strong>Url:</strong>
-  <%= @video.url %>
-</p>
+  <div class="row justify-content-md-center">
 
-<p>
-  <strong>Views:</strong>
-  <%= @video.views %>
-</p>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      Author
+    </div>
+    <div class="col-md-9">
+      <%= @video.name %>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+  <div class="row">
+    <div class="col-md-3">
+      url
+    </div>
+    <div class="col-md-9">
+      <%= @video.url %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      Views
+    </div>
+    <div class="col-md-9">
+      <%= @video.views %>
+    </div>
+  </div>
+
+  <br>
+
+  <%= link_to 'Edit', edit_video_path(@video), class: 'btn btn-primary' %> |
+  <%= link_to 'Back', videos_path, class: 'btn btn-danger', style: 'color: white' %>
+</main>
+
+<%= javascript_pack_tag 'player' %>

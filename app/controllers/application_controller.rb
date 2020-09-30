@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
       |u| u.permit(:name, :email, :password, :current_password)
     }
   end
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || videos_path
+  end
 end
