@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # get 'videos/update'
   # get 'videos/delete'
 
+  get 'main/index'
+
   root :to => 'main#index'
 
   resources :videos
