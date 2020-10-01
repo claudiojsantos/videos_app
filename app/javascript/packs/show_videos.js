@@ -8,4 +8,4 @@ let options= {
     }
 }
 
-let player = videojs("player", options, function () {})
+let player = videojs("src_url", options, function () {})
