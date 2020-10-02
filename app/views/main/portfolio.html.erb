@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag "portfolio" %>
+
+<div class="main">
+
+  <h1>Videos</h1>\
+  <h2>Videos Cadastrados</h2>
+
+  <table class="table ">
+    <thead>
+      <th>Author</th>
+      <th>URL</th>
+      <th>Views</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @videos.each do |video|  %>
+        <tr>
+          <input type="hidden" value=<%= video.id %>>
+          <td><%= video.name %></td>
+          <td><%= video.url %></td>
+          <td><%= video.views %></td>
+          <td>
+              <div class="col-md-12 text-center" id="player_video">
+                <video id="player" class="video-js">
+                  <source id="src_url" src=<%= video.url %> type="application/x-mpegURL"/>
+                </video>
+              </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+</div>
+
+<%= javascript_pack_tag 'player' %>

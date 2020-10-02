@@ -1,6 +1,6 @@
 let options= {
     "controls": true,
-    "autoplay": true,
+    "autoplay": false,
     "preload": "auto",
     "data-setup": {
         "liveui": true,

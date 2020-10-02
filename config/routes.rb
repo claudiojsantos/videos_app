@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'main/index'
   get 'view_increment/:id', to: 'videos#view_increment'
+  get 'portfolio', to: 'main#portfolio'
 
   root :to => 'main#index'
 

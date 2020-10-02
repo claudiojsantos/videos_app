@@ -2,6 +2,10 @@ class MainController < ApplicationController
   def index
   end
 
+  def portfolio
+    @videos = Video.all
+  end
+
   private
     def resource_name
       :user
