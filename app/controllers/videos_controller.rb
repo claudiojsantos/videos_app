@@ -2,6 +2,8 @@ class VideosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /videos
   # GET /videos.json
   def index
@@ -26,6 +28,15 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params.merge(user_id: current_user.id))
+
+    # filename = File.basename("#{Rails.root}/public/uploads/file/#{@video.id}#{params['video']['file'].original_filename}", ".*")
+    # file = "#{Rails.root}/public/uploads/file/#{@video.id}/filename"
+
+    # @video.file = file
+
+    # create_m3u8(@video.file)
+
+
 
     respond_to do |format|
       if @video.save
@@ -62,7 +73,11 @@ class VideosController < ApplicationController
     end
   end
 
+
   private
+
+
+
   # Use callbacks to share common setup or constraints between actions.
   def set_video
     @video = Video.find(params[:id])
@@ -70,6 +85,6 @@ class VideosController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def video_params
-    params.require(:video).permit(:name, :url, :views, :user_id)
+    params.require(:video).permit(:name, :url, :views, :user_id, :file)
   end
 end

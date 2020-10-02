@@ -1,5 +1,11 @@
-<h1>New Video</h1>
+<%= render 'header' %>
 
-<%= render 'form', video: @video %>
+<div class="div div-12">
+  <div class="div text-center">
+    <h1>New Video</h1>
+  </div>
 
-<%= link_to 'Back', videos_path %>
+  <%= render 'form', video: @video %>
+
+  <%= link_to 'Back', videos_path, class: 'btn btn-danger', style: 'color: white' %>
+</div>

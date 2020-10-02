@@ -1,32 +1,45 @@
-<%= form_with(model: video, local: true, html: { multipart: true } ) do |form| %>
-  <% if video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_with(model: video, local: true, html: { multipart: true } ) do |form| %>
+      <% if video.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
 
-      <ul>
-        <% video.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+          <ul>
+            <% video.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :url %>
+        <%= form.file_field :file, id: :video_file, accept: 'video/mp4' %>
+      </div>
+
+      <div class="field from-group">
+        <div class="col-md-6">
+        </div>
+      </div>
+
+      <div class="actions text-right">
+        <%= form.submit 'Save', :class => "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <div class="field form-group">
+      <div class="col-md-12 text-center" id="player_video">
+        <video id="player" class="video-js">
+          <source id="src_player" src=<%= @video.url %> type="application/x-mpegURL"/>
+        </video>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.file_field :url, id: :video_file, accept: 'video/m3u8' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :views %>
-    <%= form.number_field :views %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
