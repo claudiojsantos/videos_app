@@ -18,7 +18,9 @@
       Author
     </div>
     <div class="col-md-9">
-      <%= @video.name %>
+      <input type="hidden" id="code" value="<%= @video.id %>" >
+
+       <%= @video.name %>
     </div>
   </div>
 

@@ -10,7 +10,11 @@ let options= {
 
 let player = videojs("player", options, function () {})
 
-$("#btn_play").on("click", function(){
-    player.src([{type: "application/x-mpegURL", src: $("#ipt_url").val()}])
-    player.play()
+player.on('play', function(){
+    $.ajax({
+        method: 'get',
+        url: `/view_increment/${$("#code").val()}`,
+    }).done(function(data){
+        alert(data)
+    })
 })

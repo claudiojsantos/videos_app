@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # get 'videos/delete'
 
   get 'main/index'
+  get 'view_increment/:id', to: 'videos#view_increment'
 
   root :to => 'main#index'
 

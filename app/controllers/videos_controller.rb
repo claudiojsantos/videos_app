@@ -2,8 +2,6 @@ class VideosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
-
-
   # GET /videos
   # GET /videos.json
   def index
@@ -28,15 +26,6 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params.merge(user_id: current_user.id))
-
-    # filename = File.basename("#{Rails.root}/public/uploads/file/#{@video.id}#{params['video']['file'].original_filename}", ".*")
-    # file = "#{Rails.root}/public/uploads/file/#{@video.id}/filename"
-
-    # @video.file = file
-
-    # create_m3u8(@video.file)
-
-
 
     respond_to do |format|
       if @video.save
@@ -73,11 +62,18 @@ class VideosController < ApplicationController
     end
   end
 
+  def view_increment
+    @video = Video.find_by(id: params[:id])
+
+    views = @video.views + 1
+
+    @video.update({"views" => views})
+
+    views
+  end
+
 
   private
-
-
-
   # Use callbacks to share common setup or constraints between actions.
   def set_video
     @video = Video.find(params[:id])
